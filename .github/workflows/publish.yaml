@@ -15,5 +15,8 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
+      - name: Setup Build
+        run: touch buildkitd.toml
+
       - name: Build & Push image
         run: yarn push ghcr.io/${{ github.repository_owner }}

@@ -46,7 +46,7 @@ process.on('SIGTERM', onClose);
 export default async (uri) => {
 	await page.goto(uri, {
 		timeout: parseInt(process.env.LOAD_TIMEOUT),
-		waitUntil: 'domcontentloaded',
+		waitUntil: 'load',
 	});
 	await page.waitForTimeout(parseInt(process.env.WAIT_AFTER_LOAD_MS));
 
