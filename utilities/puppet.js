@@ -50,5 +50,5 @@ export default async (uri) => {
 	});
 	await page.waitForTimeout(parseInt(process.env.WAIT_AFTER_LOAD_MS));
 
-	return page.content();
+	return page.$eval('*', el => el.innerText);
 };
